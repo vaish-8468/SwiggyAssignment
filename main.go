@@ -7,11 +7,11 @@ import (
 	"bufio"
 
 )
-type Player struct {
-	Health int
-	Strength int
-	Attack int
-}
+// type Player struct {
+// 	Health int
+// 	Strength int
+// 	Attack int
+// }
 
 
 
@@ -81,9 +81,6 @@ func main() {
 	}
 
 	// Calling the Arena function with the players slice
-	// err := Arena(players)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
+	Arena(players)
 
 }
