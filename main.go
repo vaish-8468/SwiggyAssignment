@@ -53,9 +53,9 @@ func main() {
 	fmt.Println(yellow+"Enter the number of players in the game: "+reset)
     var num int
 	fmt.Scanln(&num)
-	if num>2 {
-		fmt.Println("Too many players")
-		fmt.Println("Maximum number of players is 2")
+	if num<2 {
+		fmt.Println("Too less players")
+		fmt.Println("Minimum number of players is 2")
 	}
 	t := 1
 	// Created a slice to store player objects
