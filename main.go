@@ -7,11 +7,7 @@ import (
 	"bufio"
 
 )
-// type Player struct {
-// 	Health int
-// 	Strength int
-// 	Attack int
-// }
+
 
 
 
@@ -33,6 +29,7 @@ func main() {
 	not all terminal emulators support all ANSI escape codes, 
 	so the appearance of text may vary depending on the terminal being used.
 	***************************************************************/
+	// Try to make it single line
 	fmt.Println("**********************************************")
 	fmt.Println(red + bold + "Welcome to this Magical Arena" + reset)
 	fmt.Println("**********************************************")
@@ -51,32 +48,40 @@ func main() {
 	if we want to include more number of players than only 2
 	****************************************************************/
 	fmt.Println(yellow+"Enter the number of players in the game: "+reset)
-    var num int
-	fmt.Scanln(&num)
-	if num<2 {
+    var numberOfPlayers int
+	fmt.Scanln(&numberOfPlayers)
+	if numberOfPlayers<2 {
 		fmt.Println("Too less players")
 		fmt.Println("Minimum number of players is 2")
 	}
+
+
 	t := 1
+	//player numeration starts from 1
+
+
 	// Created a slice to store player objects
 	var players []Player
-	for num>0{
+	for numberOfPlayers>0{
 		fmt.Printf(green+"Enter Player %d Details in the format: <Health> <Strength> <Attack>\n"+reset,t)
 		reader := bufio.NewReader(os.Stdin)
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 		data := strings.Split(input, " ")
 
+		playerNum := t
 		health, _ := strconv.Atoi(data[0])
 		strength, _ := strconv.Atoi(data[1])
 		attack, _ := strconv.Atoi(data[2])
+
+		// Created a new Player object and appended it to the players slice
 		p := new(Player)
+		p.PlayerNumber = playerNum
 		p.Health = health
 		p.Attack = attack
 		p.Strength = strength
-		// Created a new Player object and appended it to the players slice
 		players = append(players, *p)
-		num--
+		numberOfPlayers--
 		t++
 	}
 

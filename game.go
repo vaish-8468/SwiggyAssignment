@@ -12,6 +12,7 @@ func Arena(players []Player) {
 	bold := "\033[1m"
 	reset := "\033[0m"
 	green := "\033[32m"
+	blue := "\033[34m"
 	// yellow := "\033[33m"
 
 	fmt.Println(red+bold+"Choose any two players to play the game"+reset)
@@ -33,6 +34,7 @@ func Arena(players []Player) {
 	Determined who attacks first based on health
 	**********************************************/
 	var attacker, defender Player
+	
 	if player1.Health <= player2.Health {
 		attacker = player1
 		defender = player2
@@ -40,25 +42,26 @@ func Arena(players []Player) {
 		attacker = player2
 		defender = player1
 	}
+	
+	// Declare the winner
+	var winner Player
 
-	 /**********************************************
-	 Fight until one player's health reaches 0
-	 *********************************************/
-	for player1.Health > 0 && player2.Health > 0 {
-		Fighting(attacker, defender, num1, num2)
-		
+	/**********************************************
+	Fight until one player's health reaches 0
+	*********************************************/
+	for attacker.Health > 0 && defender.Health > 0 {
+		Fighting(&attacker, &defender)	
 		// Swap attacker and defender after each turn
 		attacker, defender = defender, attacker
 	}
 
-	// Declare the winner
-	// var winner Player
-	// if player1.Health <= 0 {
-	// 	winner = player2
-	// } else {
-	// 	winner = player1
-	// }
-	// fmt.Printf("%s wins the game!\n", num1)
+
+	if player1.Health <= 0 {
+		winner = player2
+	} else {
+		winner = player1
+	}
+	fmt.Printf(blue+bold+"Player%d wins the game!\n"+reset, winner.PlayerNumber)
 }
 
 
