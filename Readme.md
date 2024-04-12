@@ -105,3 +105,8 @@ go test
  1. The code structure is scalable in nature since it can deal with multiple users at a time.
  2. A front-end can be integrated which can enhance the presentation of the game.
  3. Certain more features and level challenges can be added to this code structure.
+
+
+### Author
+Vartika Vaish :
+vartika2000vaish@gmail.com
