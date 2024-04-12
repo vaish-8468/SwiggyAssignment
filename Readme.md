@@ -95,6 +95,9 @@ Also checkout the attached screen recording to see complete code execution resul
 go test
 
  ```
+ ![Test Snippet](goTest.png)
+ All the test cases are mentioned inside `main_test.go` file.
+ 
  
 
  ### Future Scope
