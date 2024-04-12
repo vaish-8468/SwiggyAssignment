@@ -43,24 +43,43 @@ func Arena(players []Player) {
 	}
 	
 	// Declare the winner
-	var winner Player
+	// var winner Player
 
 	/**********************************************
 	Fight until one player's health reaches 0
 	*********************************************/
-	for attacker.Health > 0 && defender.Health > 0 {
+	for attacker.Health > 0  {
 		Fighting(&attacker, &defender)	
 		// Swap attacker and defender after each turn
 		attacker, defender = defender, attacker
 	}
 
+	fmt.Printf(blue+bold+"Player%d wins 🤴🏼 the game!\n"+reset, defender.PlayerNumber)
+	
+}
 
+func UnitTesting(player1 Player, player2 Player) int{
+	var attacker, defender Player
+	if player1.Health <= player2.Health {
+		attacker = player1
+		defender = player2
+	} else {
+		attacker = player2
+		defender = player1
+	}
+	for attacker.Health > 0 && defender.Health > 0 {
+		Fighting(&attacker, &defender)	
+		// Swap attacker and defender after each turn
+		attacker, defender = defender, attacker
+	}
+	var winner Player
 	if player1.Health <= 0 {
 		winner = player2
 	} else {
 		winner = player1
 	}
-	fmt.Printf(blue+bold+"Player%d wins 🤴🏼 the game!\n"+reset, winner.PlayerNumber)
+
+	return winner.PlayerNumber
 }
 
 

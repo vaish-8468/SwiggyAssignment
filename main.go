@@ -91,6 +91,6 @@ func main() {
 	}
 
 	// Calling the Arena function with the players slice
-	Arena(players)
+	 Arena(players)
 
 }
