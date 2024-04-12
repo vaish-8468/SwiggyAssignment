@@ -8,14 +8,13 @@ func Arena(players []Player) {
 	/*********************************
 	ANSI escape codes to format text
 	*********************************/
-	red := "\033[31m"
+
 	bold := "\033[1m"
 	reset := "\033[0m"
-	green := "\033[32m"
 	blue := "\033[34m"
-	// yellow := "\033[33m"
+	yellow := "\033[33m"
 
-	fmt.Println(red+bold+"Choose any two players to play the game"+reset)
+	fmt.Println(yellow+bold+"Choose any two players to play the game in the format: <player number> <player number>"+reset)
 
 	/***************************************************************************
 	nums1 and nums2 are the converted into the 0-based indexing of the players
@@ -26,7 +25,7 @@ func Arena(players []Player) {
 		fmt.Println("Enter valid numbers")
 		return 
 	}
-	fmt.Println(green+bold+"Great! You can start the game now"+reset)
+	fmt.Println(blue+bold+"Great! Game started...🎮"+reset)
 	player1 :=players[num1-1]
 	player2 :=players[num2-1]
 
@@ -61,7 +60,7 @@ func Arena(players []Player) {
 	} else {
 		winner = player1
 	}
-	fmt.Printf(blue+bold+"Player%d wins the game!\n"+reset, winner.PlayerNumber)
+	fmt.Printf(blue+bold+"Player%d wins 🤴🏼 the game!\n"+reset, winner.PlayerNumber)
 }
 
 
