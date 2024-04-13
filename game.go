@@ -58,29 +58,6 @@ func Arena(players []Player) {
 	
 }
 
-func UnitTesting(player1 Player, player2 Player) int{
-	var attacker, defender Player
-	if player1.Health <= player2.Health {
-		attacker = player1
-		defender = player2
-	} else {
-		attacker = player2
-		defender = player1
-	}
-	for attacker.Health > 0 && defender.Health > 0 {
-		Fighting(&attacker, &defender)	
-		// Swap attacker and defender after each turn
-		attacker, defender = defender, attacker
-	}
-	var winner Player
-	if player1.Health <= 0 {
-		winner = player2
-	} else {
-		winner = player1
-	}
-
-	return winner.PlayerNumber
-}
 
 
 
